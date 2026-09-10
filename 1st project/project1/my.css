@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 11px;
     
     
 
@@ -23,13 +23,7 @@
    list-style: none;
     text-decoration: none;
     display: flex;
-<<<<<<< HEAD
-  
-   
-    font-size: 5px;
-=======
    font-size: 5px;
->>>>>>> dd3e35132f814074a5145f21d2a402b9f3b97468
 
 }
 li a{
@@ -45,15 +39,6 @@ li a:hover{
     color: rgb(49, 210, 21);
     
 }
-<<<<<<< HEAD
-.image{
-    height: 30px;
-    width: 30px;
-    margin: 10px 20px ;
-    background-color: blue;
-    border: 50%;
-  
-=======
 .image1{
     height: 60px;
     width: 40px;
@@ -79,5 +64,4 @@ li a:hover{
     margin: 1px 5px;
     border: 1px solid orange;
 
->>>>>>> dd3e35132f814074a5145f21d2a402b9f3b97468
 }
