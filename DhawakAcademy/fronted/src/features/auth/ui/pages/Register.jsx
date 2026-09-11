@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from 'axios'
+import { toast } from "react-toastify";
 const Register = () => {
   const [loding, setLoading] = useState(false);
   let {
@@ -8,14 +9,14 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const submitHandler = async (data) => {
     setLoading(true);
     console.log("clicked");
     let res = await axios.post(
       "https://bihar-l952.onrender.com/api/auth/register",
-      data,
-    );
+      data);
+      console.log(res)
+      toast.success("register successfully")
 
     setLoading(false);
     console.log(res);
