@@ -15,12 +15,13 @@ const Register = () => {
     let res = await axios.post(
       "https://bihar-l952.onrender.com/api/auth/register",
       data);
-      console.log(res)
-      toast.success("register successfully")
+      console.log(res.data)
+      toast.success(res.data)
 
     setLoading(false);
     console.log(res);
   };
+  
   return (
     <div>
       <form onSubmit={handleSubmit(submitHandler)}>
