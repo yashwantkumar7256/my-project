@@ -2,11 +2,14 @@ import React from 'react'
 import Home from '../ui/pages/Home'
 import SecondPage from '../ui/pages/SecondPage'
 import ThirdPage from '../ui/pages/ThirdPage'
+import Navbar from '../ui/components/Navbar'
 
 const HomePage = () => {
   return (
     <div>
-      <div className="mt-10 mx-5 ">
+      
+      <div className=" ">
+        
         <Home/>
         <SecondPage/>
         <ThirdPage/>

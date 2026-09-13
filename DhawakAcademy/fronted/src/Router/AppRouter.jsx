@@ -39,6 +39,7 @@ const AppRouter = () => {
         }
       ],
     },
+  
   ]);
 
   return <RouterProvider router={router} />;
