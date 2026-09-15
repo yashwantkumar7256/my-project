@@ -5,12 +5,12 @@ const Navbar = () => {
   const navItems = [
     { name: "HOME", path: "/" },
     { name: "PROFILE", path: "/profile" },
-    { name: "TRAINING-COURSES", path: "/tranning" },
+    { name: "COURSES", path: "/tranning" },
   ];
 
   return (
-    <nav className="fixed top-5 left-0 w-full px-5 z-50">
-      <div className="flex items-center justify-between">
+    <nav className="fixed top-5 left-0 w-full px-2 z-50">
+      <div className="flex items-center   justify-between">
 
         {/* Logo */}
         <div className="text-xl font-bold">
@@ -18,7 +18,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation */}
-        <div className=" md:flex gap-5 nav-font">
+        <div className=" md:flex flex gap-3 md:gap-7 bg-amber-200 nav-font">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
@@ -35,7 +35,8 @@ const Navbar = () => {
         </div>
 
         {/* Login */}
-        <NavLink
+        <div className="bg-green-800 px-2 font-bold rounded">
+        <NavLink 
           to="/login"
           className={({ isActive }) =>
             isActive
@@ -45,6 +46,7 @@ const Navbar = () => {
         >
           Login
         </NavLink>
+         </div>
 
       </div>
     </nav>
