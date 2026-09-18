@@ -16,3 +16,30 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+main{
+  background-color: black;
+  height:100%;
+  width: 100%;
+  display: grid;
+  color: white;
+  font-size: 30px;
+  grid-template-columns: 20% 50% 30% ;
+  grid-template-rows: 1fr 1fr 1fr ;
+
+  grid-template-areas: 
+  "header header header"
+  "middle-left middle-bottom middle-right "
+  "side-left middle-bottom side-right"
+;
+}
+#header{
+  background-color: green;
+ grid-area: header;
+}
+#middle-l{
+  grid-area: side-left;
+}
+#middle-b{
+  grid-area: middle-bottom;
+}

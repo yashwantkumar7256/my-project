@@ -3,7 +3,7 @@ import React from "react";
 const ThirdPage = () => {
   return (
     <>
-   <div className="flex justify-center items-center">
+   <div className="flex justify-center items-center ">
      <div className="uppercase font-bold text-2xl">information </div>
    </div>
       <div className="h-screen flex text-white flex-col justify-between bg-gray-900">
