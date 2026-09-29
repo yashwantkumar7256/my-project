@@ -4,7 +4,7 @@ const FourthPage = () => {
   return (<>
     <main className='gap-3'>
      
-     <div id='header' >1</div>
+     <div id='header' >01</div>
      <div id='middle-left' className='bg-amber-200'>2</div>
      <div id='middle-b' className='bg-amber-600'>3</div>
      <div id='middle-r' className='bg-amber-900'>4</div>
