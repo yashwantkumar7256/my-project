@@ -4,7 +4,13 @@ import StudentCard from '../components/StudentCard'
 const SecondPage = () => {
   const Card=[
     {
-     img:"",
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQISPxvJZ_mMbWjKb2t_Mgzk-cSfTOOLGL3N_cHbjUwsw&s=10",
+     name:"yashwant kumar",
+     year:"2022",
+     post:"polic"
+    },
+    {
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgI3fF6_ebdidZr1lnTEvKusZLVuw2ZKsrhm_Xtxn6ZdQlOo9PBRq1v2VW&s=10",
      name:"yashwant kumar",
      year:"2022",
      post:"polic"
@@ -16,7 +22,13 @@ const SecondPage = () => {
      post:"polic"
     },
     {
-     img:"",
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0f-NXrt_e1GyeK2FvXIqjWpugRxsG_HQqmjoI4XZ4hg&s=10",
+     name:"yashwant kumar",
+     year:"2022",
+     post:"polic"
+    },
+    {
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzdRIoWmVlJz1VZp2gNHWevR6s1AGlwm_Hqfi8p1cwwbjUQethuaShFpmr&s=10",
      name:"yashwant kumar",
      year:"2022",
      post:"polic"
@@ -28,31 +40,19 @@ const SecondPage = () => {
      post:"polic"
     },
     {
-     img:"",
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlJvHmZfOKGN1lxa_X52qsaVgr7lIuUmQGGM_R6m_Yg&s",
      name:"yashwant kumar",
      year:"2022",
      post:"polic"
     },
     {
-     img:"",
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ScB3oUxmLcykg26DReWIXt3JkrStKM8UFMTxPqdOzpWaJXy3fWz59p8&s=10",
      name:"yashwant kumar",
      year:"2022",
      post:"polic"
     },
     {
-     img:"",
-     name:"yashwant kumar",
-     year:"2022",
-     post:"polic"
-    },
-    {
-     img:"",
-     name:"yashwant kumar",
-     year:"2022",
-     post:"polic"
-    },
-    {
-     img:"",
+     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxmx_dE4xhPZbCKDEQ8KRe9m10his4FU4dMjX5dDI2Ow&s=10",
      name:"yashwant kumar",
      year:"2022",
      post:"polic"
