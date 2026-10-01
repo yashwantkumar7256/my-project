@@ -1,45 +1,67 @@
-@import "tailwindcss";
+main {
+  background-color: aqua;
+  height: 100vh;
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-
-.nav-font {
-  font-family: 'Dancing Script', cursive;
-}
-
-
-/* Hide scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-main{
-  background-color: black;
-  height:100%;
-  width: 100%;
   display: grid;
-  color: white;
-  font-size: 30px;
-  grid-template-columns: 20% 50% 30% ;
-  grid-template-rows: 1fr 1fr 1fr ;
 
-  grid-template-areas: 
-  "header header header"
-  "middle-left middle-bottom middle-right "
-  "side-left middle-bottom side-right"
-;
+  grid-template-columns: 30% 20% 7% 20% 30%;
+  grid-template-rows: 25% 12% 13% 25% 25%;
+
+  grid-template-areas:
+    "left top1 top1 top2 right"
+    "left center center center right"
+    "bottom-l center center center right"
+    "bottom-l center center center bottom-r"
+    "bottom-l bottom1 bottom2 bottom3 bottom-r";
+    gap:10px
 }
-#header{
-  background-color: green;
- grid-area: header;
+
+#top-right {
+  grid-area: right;
+  background-color:pink;
 }
-#middle-l{
-  grid-area: side-left;
+
+#top-left {
+  grid-area: left;
+   background-color:blue;
 }
-#middle-b{
-  grid-area: middle-bottom;
+
+#top1 {
+  grid-area: top1;
+   background-color:orange;
+}
+
+#top2 {
+  grid-area: top2;
+   background-color:yellow;
+}
+
+#center {
+  grid-area: center;
+   background-color:red;
+}
+
+#bottom-left {
+  grid-area: bottom-l;
+   background-color:green;
+}
+
+#bottom-right {
+  grid-area: bottom-r;
+   background-color:purple;
+}
+
+#bottom1 {
+  grid-area: bottom1;
+   background-color:blue;
+}
+
+#bottom2 {
+  grid-area: bottom2;
+   background-color:green;
+}
+
+#bottom3 {
+  grid-area: bottom3;
+   background-color:yellow;
 }

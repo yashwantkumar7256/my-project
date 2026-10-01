@@ -1,26 +1,53 @@
-import React from 'react'
+import React from "react";
 
 const FourthPage = () => {
-  return (<>
-    <main className='gap-3'>
-     
-     <div id='header' >01</div>
-     <div id='middle-left' className='bg-amber-200'>2</div>
-     <div id='middle-b' className='bg-amber-600'>3</div>
-     <div id='middle-r' className='bg-amber-900'>4</div>
-     <div id='side-l' className='bg-amber-700'>5</div>
-     <div id='side-r' className='bg-amber-100'>6</div>
-        {/* <div id='side-b' className='bg-amber-100'>7</div>
-     <div className='bg-amber-400'>8</div>
-     <div className='bg-amber-900'>9</div> */}
+  return (
+    <main>
+      <div id="top-left" className="bg-red-300">
+        1
+      </div>
 
+      <div id="top1" className="bg-amber-800">
+        2
+      </div>
 
+      <div id="top2" className="bg-amber-500">
+        3
+      </div>
+
+      <div id="top-right" className="bg-red-500">
+        4
+      </div>
+
+      <div id="center" className="bg-amber-700">
+        5
+      </div>
+
+      <div id="bottom-left" className="bg-amber-300">
+        6
+      </div>
+
+      <div id="bottom-right" className="bg-amber-200">
+        7
+      </div>
+
+      <div id="bottom-m1" className="bg-amber-700">
+        8
+      </div>
+
+      <div id="bottom-m2" className="bg-amber-600">
+        9
+      </div>
+
+      <div id="bottom-m1" className="bg-amber-500">
+        10
+      </div>
+
+      <div id="bottom-m2" className="bg-amber-200">
+        11
+      </div>
     </main>
- 
-     
-    
-    </>
-  )
-}
+  );
+};
 
-export default FourthPage
+export default FourthPage;
