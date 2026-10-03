@@ -1,41 +1,76 @@
 import React from "react";
-
+import { ArrowRight } from "lucide-react";
 const LandingPage = () => {
   return (
     <>
-     
-      <div className="w-full min-h-screen bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBVAJpxpEzI-VMr0hcV5oaRkmOAgRjc952l9K8xTMdX4AAHv3hRrIvEC8&s=10')] bg-cover bg-center bg-no-repeat flex flex-col">  
-         
-        
-        <div className="bg-black w-full min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10">  
-           
-        
-          <div  
-            className="w-full bg-green-600 max-w-6xl h-auto md:h-[80vh] gap-4 p-4 rounded-xl
-            grid grid-cols-1 md:grid-cols-[1fr_1.5fr] grid-rows-none md:grid-rows-[1fr_1fr]
-            [grid-template-areas:'left-t''img''left-b'] 
-            md:[grid-template-areas:'left-t_img''left-b_img']" 
-          >  
-            
-           
-            <div className="[grid-area:left-t] bg-amber-100 min-h-[150px] md:min-h-0 rounded-lg flex items-center justify-center font-bold text-xl md:text-2xl text-black p-4"> 
-              1 
-            </div>  
- 
-         
-            <div className="[grid-area:img] bg-amber-400 min-h-[250px] md:min-h-0 rounded-lg flex items-center justify-center font-bold text-xl md:text-2xl text-black p-4"> 
-              2 
-            </div>  
- 
-         
-            <div className="[grid-area:left-b] bg-amber-800 min-h-[150px] md:min-h-0 rounded-lg flex items-center justify-center font-bold text-xl md:text-2xl text-white p-4"> 
-              3 
-            </div>  
-          </div>  
-        </div>  
-      </div>  
-    </>  
-  );  
-};  
- 
+      <div className="min-h-screen w-full pt-15 px-5 flex justify-center ">
+        <div className="grid grid-cols-1 w-full  gap-2 grid-rows-[20px_25vh_25vh_12vh_12vh_12vh]">
+          <div className="rounded-2xl px-5 flex font-bold  text-orange-700 justify-center">
+            <div>TRANNING START TODAY</div>
+          </div>
+          <div className=" rounded-2xl  font-extrabold tracking-[-1px] [word-spacing:-1px] ">
+            <div className="flex justify-center  text-white">
+              <div className="text-4xl">
+                <span className="[word-spacing:-4px]">IT IS ONE OF THE</span>{" "}
+                <br /> <span className="text-3xl pl-9">BEST TRAINING</span>{" "}
+                <br /> <span className="text-2xl px-19">ACADEMY </span>
+                <div className="flex bg-red-400 mx-15 rounded-2xl justify-center items-center cursor-pointer">
+                  <button className="text-lg">start now</button>
+                  <ArrowRight />
+                </div>
+                <div>
+                  <div className="flex -space-x-1">
+                    <img
+                      className="rounded-full  h-[4vh] "
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvabEE_TNgRzOllhDknCb3Pcq6OwHbpwJPucBr8t__w&s=10"
+                      alt=""
+                    />
+                    <img
+                      className="rounded-full h-[4vh]"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvabEE_TNgRzOllhDknCb3Pcq6OwHbpwJPucBr8t__w&s=10"
+                      alt=""
+                    />{" "}
+                    <img
+                      className="rounded-full h-[4vh]"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvabEE_TNgRzOllhDknCb3Pcq6OwHbpwJPucBr8t__w&s=10"
+                      alt=""
+                    />{" "}
+                    <img
+                      className="rounded-full h-[4vh]"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvabEE_TNgRzOllhDknCb3Pcq6OwHbpwJPucBr8t__w&s=10"
+                      alt=""
+                    />
+                  </div>
+                  <div className="text-lg text-amber-600">
+                    30+ students seclected to this academy
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div className="rounded-2xl overflow-hidden h-full">
+            <div className="h-full w-full flex justify-center items-center overflow-hidden rounded-2xl">
+              <img
+                className="h-full w-2/3 object-cover object-top rounded-2xl"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSepBnKdL5V3EAxhcFnT9JSEjcmr2SuoKCguQJ0K5pb_g&s=10"
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="rounded-2xl bg-amber-900  px-5">
+            <div className="text-xl [word-spacing:-1px] tracking-tight font-bold">
+              Exprience 7 YEARS <sup>+</sup> 
+            </div>
+            <div className="mx-15">He has train 200<sup>+</sup> students </div>
+          </div>
+          <div className="bg-green-100 rounded-2xl">6</div>
+           <div className="bg-green-700 rounded-2xl">6</div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default LandingPage;
