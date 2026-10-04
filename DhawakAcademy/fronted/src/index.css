@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
+
 @import "tailwindcss";
 
-
-
 @theme {
-  --font-cursive: cursive;
+  --font-jim: "Jim Nightshade", cursive;
 }
