@@ -26,7 +26,7 @@ useEffect(() => {
   return () => clearTimeout(delay);
 }, []);
   return (
-    <div className="min-h-screen w-full bg-zinc-950 text-white pt-10 pb-16 px-4 md:px-8 xl:px-16 flex justify-center items-center">
+    <div className="min-h-screen w-full bg-zinc-950 text-white pt-10 pb-5 px-4 md:px-8 xl:px-16 flex justify-center items-center">
       {/* Dynamic Grid Layout container changing per responsive breakpoint */}
       <div className="w-full max-w-7xl 2xl:max-w-[1600px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-7 xl:gap-8 2xl:gap-10 items-stretch">
         

@@ -2,7 +2,7 @@ import React from 'react';
 
 const StudentCart = ({ data }) => {
   return (
-    <div className='bg-amber-700 w-[70vw] sm:w-[40vw] md:w-[25vw] lg:w-[18vw] flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-amber-600/30 text-white transform transition-all duration-300 hover:-translate-y-2 hover:shadow-amber-500/10'>
+    <div className='bg-amber-700 w-[70vw] sm:w-[40vw] md:w-[25vw] lg:w-[18vw] flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-fuchsia-900/100 border border-amber-600/30 text-white transform transition-all duration-300 hover:-translate-y-8 hover:shadow-blue-700  '>
       
       {/* Top Section: Photo Frame */}
       <div className='w-full h-44 sm:h-48 md:h-52 bg-amber-600 flex items-center justify-center overflow-hidden relative group'>

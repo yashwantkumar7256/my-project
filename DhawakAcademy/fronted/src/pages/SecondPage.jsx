@@ -17,9 +17,9 @@ const SecondPage = () => {
   ];
 
   return (
-    <div className="w-full bg-zinc-950 py-10 overflow-hidden">
+    <div className="w-full bg-zinc-950 py-5 overflow-hidden">
       {/* Clean Header */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-2">
         <h2 className="text-2xl md:text-3xl font-extrabold text-amber-500 tracking-wider uppercase border-b-2 border-amber-500 pb-2">
           Selected Students
         </h2>
