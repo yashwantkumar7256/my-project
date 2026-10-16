@@ -3,22 +3,16 @@ import React from 'react'
 const CoursesCard = () => {
   return (
     <>
-     <div className='group relative m-7 min-h-[40vh] w-[30vh] flex flex-col bg-amber-300 rounded-2xl overflow-hidden'>
+  
+  <div className='bg-blue-300 overflow-hidden  rounded-2xl h-[30vh] w-[40vw]  '>
+    <div className='bg-zinc-950 h-2/3 w-full rounded-t-2xl '>
+    <img className='h-full w-full object-fit' src="https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/a17e7705-1849-4b0f-8250-b55000a67d7d.jpg?w=1080&d=kgs-v2.akamaized.net&q=100" alt="" />
+    </div>
+    <div className='flex justify-center '>
+   <button className='bg-orange-400 px-3 rounded-md mt-5 sm:w-1/2 '>details</button>
+    </div>
  
-  <div className='overflow-hidden  w-full'>
-    <img 
-      className='h-2/3 w-full object-cover transition-transform duration-[800ms] ease-in-out group-hover:scale-150' 
-      src="https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/b3c3a68d-daac-4260-9bbb-b91251a658f2.jpg?w=1080&d=kgs-v2.akamaized.net&q=100" 
-      alt="UPSC Course" 
-    />
   </div>
-
-  {/* Baki ka card content (Text/Price) yahan niche aayega */}
-  <div className='p-4 flex-1'>
-    {/* Aapka content */}
-  </div>
-</div>
-
 
       
      
