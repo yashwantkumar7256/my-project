@@ -3,6 +3,7 @@ import LandingPage from '../pages/LandingPage'
 import SecondPage from '../pages/SecondPage'
 import FourthPage from '../pages/FourthPage'
 import ThirdPage from '../pages/ThirdPage'
+import Footer from '../pages/Footer'
 
 const Second = () => {
   return (
@@ -11,6 +12,7 @@ const Second = () => {
   <SecondPage/>
   <ThirdPage/>
   <FourthPage/>
+  <Footer/>
     </div>
   )
 }
