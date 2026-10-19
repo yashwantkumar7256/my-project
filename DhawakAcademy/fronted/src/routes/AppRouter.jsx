@@ -2,6 +2,7 @@ import React from 'react'
 import MainLayout from '../Layout/MainLayout'
 import {createBrowserRouter,RouterProvider} from 'react-router'
 import Second from '../Layout/Second'
+import ContactForm from '../Features/ContectF/ui/ContectForm'
 
 const AppRouter = () => {
    let router= createBrowserRouter([
@@ -12,7 +13,11 @@ const AppRouter = () => {
             {
                 path:"",
                 element:<Second/>
+            },{
+           path:"/contact",
+            element:<ContactForm/>
             }
+           
         ]
     }
 
