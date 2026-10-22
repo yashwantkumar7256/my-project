@@ -3,6 +3,7 @@ import MainLayout from '../Layout/MainLayout'
 import {createBrowserRouter,RouterProvider} from 'react-router'
 import Second from '../Layout/Second'
 import ContactForm from '../Features/ContectF/ui/ContectForm'
+import Alizabal from '../Features/AlizabalF/ui/Alizabal'
 
 const AppRouter = () => {
    let router= createBrowserRouter([
@@ -16,6 +17,9 @@ const AppRouter = () => {
             },{
            path:"/contact",
             element:<ContactForm/>
+            },{
+                path:"/alizabal",
+                element:<Alizabal/>
             }
            
         ]
