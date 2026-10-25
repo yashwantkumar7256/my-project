@@ -39,7 +39,7 @@ const ThirdPage = () => {
            
 
           </div>
-          <div className='h-[50vh] py-5 bg-orange-400 scroll-bar-none overflow-y-scroll flex flex-wrap gap-5 justify-around'>
+          <div className='h-[50vh] py-5  scroll-bar-none overflow-y-scroll flex flex-wrap gap-5 justify-around'>
             {
               img.map((item)=>{
              return <CoursesCard img={item.img}/>
