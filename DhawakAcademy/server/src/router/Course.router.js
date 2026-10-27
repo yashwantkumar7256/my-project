@@ -1,9 +1,9 @@
 import express from "express"
+import { createCourse } from "../controller/Course.controller.js"
+
 
 const router=express.Router()
 
-router.post("/create",(req,res)=>{
-    return res.json("thankYou")
-})
+router.post("/create",createCourse)
 
 export default router
