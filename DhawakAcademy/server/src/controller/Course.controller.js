@@ -1,6 +1,6 @@
 import courseModel from "../model/Course.model.js";
 
-const createCourse=async(req,res)=>{
+ export const createCourse=async(req,res)=>{
 
     try{
 
