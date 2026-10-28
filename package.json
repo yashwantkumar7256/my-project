@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "dotenv": "^18.0.9",
-    "motion": "^14.2.0"
+    "imagekit": "^6.0.0",
+    "motion": "^14.2.0",
+    "multer": "^2.5.0"
   }
 }
