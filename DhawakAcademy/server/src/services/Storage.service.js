@@ -7,8 +7,7 @@ const client = new ImageKit({
 
 export const uploadFile = async ({ buffer, fileName }) => {
   try {
-    console.log("Buffer exists:", !!buffer);
-    console.log("File name:", fileName);
+   
 
     const file = await toFile(buffer, fileName);
 

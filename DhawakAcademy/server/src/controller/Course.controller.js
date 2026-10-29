@@ -2,12 +2,15 @@ import { response } from "express";
 import courseModel from "../model/Course.model.js";
 import { uploadFile } from "../services/Storage.service.js";
  export const createCourse=async(req,res)=>{
-    console.log(req.body)
-    console.log(req.file)
+   
 
     try{
 
-      // upload image
+      if(!req.file){
+         return res.status(400).json({
+            message:"image is required"
+         })
+      }
 
       const imageResponse = await uploadFile({
   buffer: req.file.buffer,
@@ -17,16 +20,16 @@ import { uploadFile } from "../services/Storage.service.js";
 console.log("Image URL:", imageResponse.url);
 
      
-       const{price,duration,validity,location,timing,tranner}=req.body
+       const{courseName,price,duration,validity,location,timing,tranner}=req.body
 
-    if(!price ||!duration ||!validity ||!location ||!timing ||!tranner){
+    if(!courseName,!price ||!duration ||!validity ||!location ||!timing ||!tranner){
     return res.status(400).json({
         message:"fill every field properly"
     })
     }
      const CouseData=await courseModel.create({
         
-        price,duration,validity,location,timing,tranner,
+       courseName, price,duration,validity,location,timing,tranner,
         imgUrl:imageResponse.url
      })
 
