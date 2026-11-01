@@ -3,6 +3,8 @@ import topperModel from "../model/topper.model.js";
 
 import { uploadFile } from "../services/Storage.service.js";
 
+
+
 export const createTopper=async(req,res)=>{
 
   
@@ -50,4 +52,54 @@ if(!req.file.buffer || !req.file.originalname){
     }
     }
    
+}
+
+export const getAllTopper= async (req,res)=>{
+       
+
+    try{
+      const response= await topperModel.find()
+      
+      if(response.length<=0){
+       return res.status(200).json({
+        message:"data fatched successfully",
+        data:"data model is empty"
+        
+       })
+        }
+
+      return res.status(200).json({
+        message:"data fetched successfully",
+        
+        data:response
+      })
+
+    }catch(err){
+        console.log(err)
+
+    }
+}
+
+export const deleteTopper= async(req,res)=>{
+
+    try{
+        const {id}=req.params
+
+        const isData= await topperModel.findById(id)
+        if(!isData){
+            return res.status(404).json({
+                message:"there is no data present to this id",
+            })
+        }
+
+        const response= await topperModel.findByIdAndDelete(id)
+
+        return res.status(200).json({
+            message:"deata deleted successfully",
+          data :response
+        })
+
+    }catch(err){
+        console.log(err)
+    }
 }

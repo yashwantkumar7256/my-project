@@ -39,7 +39,7 @@ courseName:{
     required:true,
     default:"Manish kumar"
    }
-});
+},{ timestamps: true });
 
 const courseModel = mongoose.model("course", courseSchema);
 

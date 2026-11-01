@@ -24,7 +24,7 @@ const topperSchema= new mongoose.Schema({
         }
 
 
-})
+},{ timestamps: true })
 
 const topperModel= mongoose.model("Topper",topperSchema)
 
