@@ -1,4 +1,5 @@
 
+import { decode } from "jsonwebtoken";
 import userModel from "../model/user.model.js";
 import { genrateToken, verifyAccessToken, verifyRefreshToken } from "../utils/auth.utils.js";
 import bcrypt from "bcrypt"
@@ -46,25 +47,32 @@ export const registerUser = async (req, res) => {
 
 export const getMe= async (req,res)=>{
     try{
-     const token=req.headers.authorization
-     if(!token){
-        return req.status(400).json({
-            message:"token is required"
-        })
-     }
+    //  const token=req.headers.authorization
+    //  if(!token){
+    //     return req.status(400).json({
+    //         message:"token is required"
+    //     })
+    //  }
 
-     const accessToken= await token?.split(" ")[ 1 ];
-      if(!accessToken){
-        return res.status(400).json({
-            message:"unauthorized or not found accessToken"
-        })
+    //  const accessToken= await token?.split(" ")[ 1 ];
+    //   if(!accessToken){
+    //     return res.status(400).json({
+    //         message:"unauthorized or not found accessToken"
+    //     })
 
-      }
+    //   }
 
-      const decode= verifyAccessToken(accessToken)
-     const user=await userModel.findById(decode.id)
+    //   const decode= verifyAccessToken(accessToken)
+
+    const {id,role}=req.user
+    console.log(id)
+    if(!id){
+      return res.json("userId not found ")
+    }
+    
+     const user=await userModel.findById(id)
      if(!user){
-       return res.status(400).json({message:"user not found "})
+       return res.status(400).json({message:"user not founddddddd "})
      }
      return res.status(200).json({
           message:"user fetch successfully",
@@ -72,7 +80,7 @@ export const getMe= async (req,res)=>{
           data:{
             name:user.name,
             email:user.email,
-            age:user.age,
+           
             mob:user.mob
           }
      })
