@@ -4,6 +4,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router'
 import Second from '../Layout/Second'
 import ContactForm from '../Features/ContectF/ui/ContectForm'
 import Alizabal from '../Features/AlizabalF/ui/Alizabal'
+import CreateAllData from '../Features/CreateF/ui/CreateAllData'
 
 const AppRouter = () => {
    let router= createBrowserRouter([
@@ -20,6 +21,9 @@ const AppRouter = () => {
             },{
                 path:"/alizabal",
                 element:<Alizabal/>
+            },{
+                path:"/create",
+                element:<CreateAllData/>
             }
            
         ]
