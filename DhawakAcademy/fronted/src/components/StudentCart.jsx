@@ -7,7 +7,7 @@ const StudentCart = ({ data }) => {
       {/* Top Section: Photo Frame */}
       <div className='w-full h-44 sm:h-48 md:h-52 bg-amber-600 flex items-center justify-center overflow-hidden relative group'>
         <img 
-          src={data.img} 
+          src={data.imgUrl} 
           alt={data.name} 
           className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
         /> 

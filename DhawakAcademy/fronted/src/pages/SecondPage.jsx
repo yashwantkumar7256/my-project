@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import StudentCart from "../components/StudentCart";
+import axios from "axios"
 
 const SecondPage = () => {
-  const StudentData = [
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-    { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXGAEKIqn67hnoMIZPnYZC7YK3M5Hb9WX85Pw4XLrAQ&s", name: "Sundri", year: "2017", post: "Sub-Inspector" },
-  ];
+  const [studentData,setStudentData]= useState([])
+
+  const getTopper= async ()=>{
+    try{
+      console.log("calling")
+      const res= await axios.get('http://localhost:3000/api/topper')
+       console.log(res.data.data)
+       setStudentData(res.data.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+  useEffect(()=>{
+getTopper()
+  },[])
+  console.log(studentData)
 
   return (
     <div className="w-full bg-zinc-950 py-5 overflow-hidden">
@@ -27,7 +31,8 @@ const SecondPage = () => {
 
       {/* Responsive Horizontal Wavy Scroller  */}
       <div className="w-full overflow-x-auto scrollbar-none scrollbar-thumb-amber-600 scrollbar-track-zinc-900 px-6 py-12 flex items-center h-[55vh] md:h-[60vh] gap-6 snap-x snap-mandatory">
-        {StudentData.map((data, idx) => (
+        
+        {studentData.map((data, idx) => (
           <div 
             key={idx}
            
