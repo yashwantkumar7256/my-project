@@ -47,23 +47,9 @@ export const registerUser = async (req, res) => {
 
 export const getMe= async (req,res)=>{
     try{
-    //  const token=req.headers.authorization
-    //  if(!token){
-    //     return req.status(400).json({
-    //         message:"token is required"
-    //     })
-    //  }
+    
 
-    //  const accessToken= await token?.split(" ")[ 1 ];
-    //   if(!accessToken){
-    //     return res.status(400).json({
-    //         message:"unauthorized or not found accessToken"
-    //     })
-
-    //   }
-
-    //   const decode= verifyAccessToken(accessToken)
-
+   
     const {id,role}=req.user
     console.log(id)
     if(!id){
@@ -136,6 +122,7 @@ try{
 }catch(err){
   console.log(err)
   return res.status(400).json({
+    message:"login failed",
     message:err.message
   })
 }
