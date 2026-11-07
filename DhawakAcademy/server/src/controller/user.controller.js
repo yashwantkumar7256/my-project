@@ -3,7 +3,7 @@ import { decode } from "jsonwebtoken";
 import userModel from "../model/user.model.js";
 import { genrateToken, verifyAccessToken, verifyRefreshToken } from "../utils/auth.utils.js";
 import bcrypt from "bcrypt"
-import cookie from "cookie-parser";
+import cookie from "cookie-parser"
 
 export const registerUser = async (req, res) => {
   try {
@@ -17,7 +17,7 @@ export const registerUser = async (req, res) => {
       
     });
     const { accessToken, refreshToken } = await genrateToken({
-      userId: user._id,
+      userId: user._id,role:user.role
     });
     console.log("access",accessToken)
 
@@ -47,23 +47,9 @@ export const registerUser = async (req, res) => {
 
 export const getMe= async (req,res)=>{
     try{
-    //  const token=req.headers.authorization
-    //  if(!token){
-    //     return req.status(400).json({
-    //         message:"token is required"
-    //     })
-    //  }
+    
 
-    //  const accessToken= await token?.split(" ")[ 1 ];
-    //   if(!accessToken){
-    //     return res.status(400).json({
-    //         message:"unauthorized or not found accessToken"
-    //     })
-
-    //   }
-
-    //   const decode= verifyAccessToken(accessToken)
-
+   
     const {id,role}=req.user
     console.log(id)
     if(!id){
@@ -95,69 +81,82 @@ export const getMe= async (req,res)=>{
     }
 }
 
-export const login= async (req,res)=>{
+export const login = async (req, res) => {
 
-try{
+    try {
 
-  const {email,password}=req.body
+        const { email, password } = req.body;
 
-  const user= await userModel.findOne({email})
-  if(!user){
-     return res.status(401).json({
-      message:"email or password is invalid "
-    })
-  }
-  const isValid= await bcrypt.compare(password,user.password)
-  console.log(isValid)
-  if(!isValid){
-    return res.status(401).json({
-      message:"email or password is invalid "
-    })
-  }
-  const {accessToken,refreshToken}= await genrateToken({userId:user._id,role:user.role})
+        const user = await userModel.findOne({ email });
 
-     res.cookie("refreshToken",refreshToken,{
-      httpOnly:true
-     })
-     user.refreshToken=refreshToken
-     await user.save()
+        if (!user) {
+            return res.status(401).json({
+                message: "Email or password is invalid"
+            });
+        }
 
+        const isValid = await bcrypt.compare(password, user.password);
 
-  return res.status(200).json({
-    message:"logedIn successfully",
-    data:{
-      name:user.name,
-      email:user.email,
-      mob:user.mob
-    },
-    accessToken
-  })
+        if (!isValid) {
+            return res.status(401).json({
+                message: "Email or password is invalid"
+            });
+        }
 
-}catch(err){
-  console.log(err)
-  return res.status(400).json({
-    message:err.message
-  })
-}
+        const { accessToken, refreshToken } =
+            await genrateToken({
+                userId: user._id,
+                role: user.role
+            });
 
-}
+       
+        user.refreshToken = refreshToken;
+        await user.save();
+
+        
+        res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+            secure: false,
+         
+        });
+
+        return res.status(200).json({
+            message: "Logged in successfully",
+            data: {
+                name: user.name,
+                email: user.email,
+                mob: user.mob
+            },
+            accessToken
+        });
+
+    } catch (err) {
+
+        console.log(err);
+
+        return res.status(500).json({
+            message: "Login failed",
+            error: err.message
+        });
+    }
+};
 
 
 export const refresh=async(req,res)=>{
 
-    
+    console.log("cookie",req.cookies)
     
     try{
     const refreshToken=req.cookies.refreshToken
-        console.log("1st",refreshToken)
+    
         
     if(!refreshToken){
-        return res.status(400).json({
+        return res.status(401).json({
             message:"invalid refreshToken"
         })
     }
      const decode=verifyRefreshToken(refreshToken)
-            console.log("decode",decode)
+            
      const user= await userModel.findById(decode.id)
 
      if(refreshToken != user.refreshToken){

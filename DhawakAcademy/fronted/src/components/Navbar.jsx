@@ -1,4 +1,4 @@
-import { color } from "motion";
+
 import React from "react";
 import { NavLink } from "react-router";
 
@@ -18,15 +18,7 @@ const Navbar = () => {
             HOME
           </NavLink>
 
-          <NavLink
-            to="/alizabal"
-            style={({ isActive }) => ({
-              color: isActive ? "orange" : "black",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-          >
-            Check Alizblity
-          </NavLink>
+        
 
           <NavLink
             to="/contact"

@@ -8,7 +8,7 @@ import AppRouter from "./routes/AppRouter";
 
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  
  <AppRouter/>
-  </StrictMode>,
+  
 );
