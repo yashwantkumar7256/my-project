@@ -1,12 +1,14 @@
 
+import userModel from "../model/user.model.js";
 import { verifyAccessToken } from "../utils/auth.utils.js";
 
 export const authenticateUser = async (req, res, next) => {
+  console.log("cookie",req.cookies)
   try {
     const token = req.headers.authorization;
 
     if (!token) {
-      return res.status(404).json({
+      return res.status(401).json({
         message: "token invalid or not found",
       });
     }
@@ -41,11 +43,14 @@ export const authenticateUser = async (req, res, next) => {
 export const authenticateAdmin=async (req,res,next)=>{
 
   try{
-    const {role}=req.user
-    if(!role=="admin"){
-      return res.status(401).json({
-        message: "you are not authorized person"
-      })
+     // const user=
+    const {id}=req.user
+    const user= await userModel.findById(id)
+    console.log(user.role,"id")
+   if (user.role !== "admin") {
+      return res.status(403).json({
+        message: "mar moj",
+      });
     }
     next()
   }catch(err){
