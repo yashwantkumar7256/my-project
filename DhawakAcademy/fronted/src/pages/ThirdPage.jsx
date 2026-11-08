@@ -1,60 +1,169 @@
-import React from 'react'
-import CoursesCard from '../components/CoursesCard'
+import React, { useEffect, useState } from "react";
+import CoursesCard from "../components/CoursesCard";
+import axios from "axios";
 
 const ThirdPage = () => {
-    const img=[
-    {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
-      {
-      img:"https://assets.khanglobalstudies.com/x/kgs/kgs/courses/large/598331bb-a7af-4d2c-af6d-005498343899.jpg?w=1080&d=kgs-v2.akamaized.net&q=100"
-    },
 
-  ]
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const getData = async () => {
+
+    try {
+
+      setLoading(true);
+      setError("");
+
+      const res = await axios.get(
+        "http://localhost:3000/api/course"
+      );
+
+      setData(res.data.data);
+
+    } catch (err) {
+
+      console.log(err);
+
+      setError("Unable to fetch achievements.");
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
 
-    <div>
-      
-  <div className='py-10'>
-          <div className='flex text-2xl underline  font-bold text-red-300 justify-center'>
-            <div>our courses</div>
-           
+    <section className="min-h-screen bg-slate-50 py-12 px-4 sm:px-8">
+
+      {/* Heading */}
+
+      <div className="max-w-7xl mx-auto">
+
+        <div className="text-center mb-12">
+
+          <p className="
+            text-blue-600
+            uppercase
+            tracking-[4px]
+            text-xs
+            sm:text-sm
+            font-bold
+            mb-3
+          ">
+            Our Pride
+          </p>
+
+          <h1 className="
+            text-3xl
+            sm:text-4xl
+            md:text-5xl
+            font-extrabold
+            text-slate-900
+          ">
+            Student <span className="text-blue-600">Achievements</span>
+          </h1>
+
+          <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+            Our students are making us proud through their dedication,
+            hard work and remarkable achievements.
+          </p>
+
+        </div>
+
+
+        {/* Loading */}
+
+        {loading && (
+
+          <div className="flex justify-center items-center py-20">
+
+            <div className="
+              w-10 h-10
+              border-4
+              border-blue-200
+              border-t-blue-600
+              rounded-full
+              animate-spin
+            " />
 
           </div>
-          <div className='h-[50vh] py-5  scroll-bar-none overflow-y-scroll flex flex-wrap gap-5 justify-around'>
-            {
-              img.map((item)=>{
-             return <CoursesCard img={item.img}/>
-              })
-            }
-            
+
+        )}
+
+
+        {/* Error */}
+
+        {error && (
+
+          <div className="text-center text-red-500 py-10">
+            {error}
           </div>
-       </div>
+
+        )}
 
 
+        {/* Cards */}
 
+        {!loading && !error && (
 
+          <>
 
-    </div>
-  )
-}
+            {data.length > 0 ? (
 
-export default ThirdPage
+              <div className="
+  grid
+  grid-cols-1
+  sm:grid-cols-2
+  lg:grid-cols-3
+  xl:grid-cols-4
+  gap-6
+  px-4
+  justify-items-center
+">
+
+  {data.map((item) => (
+    <CoursesCard
+      key={item._id}
+      data={item}
+    />
+  ))}
+
+</div>
+
+            ) : (
+
+              <div className="text-center py-20">
+
+                <h2 className="text-xl font-semibold text-gray-600">
+                  No achievements available
+                </h2>
+
+                <p className="text-gray-400 mt-2">
+                  Please check again later.
+                </p>
+
+              </div>
+
+            )}
+
+          </>
+
+        )}
+
+      </div>
+
+    </section>
+
+  );
+
+};
+
+export default ThirdPage;
