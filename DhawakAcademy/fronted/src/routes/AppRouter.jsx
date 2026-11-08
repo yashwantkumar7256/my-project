@@ -5,6 +5,8 @@ import Second from '../Layout/Second'
 import ContactForm from '../Features/ContectF/ui/ContectForm'
 
 import CreateAllData from '../Features/CreateF/ui/CreateAllData'
+import Login from '../Features/login/ui/Login'
+import GetContactData from '../Features/getAllContact/ui/GetContactData'
 
 const AppRouter = () => {
    let router= createBrowserRouter([
@@ -21,6 +23,12 @@ const AppRouter = () => {
             },{
                 path:"/create",
                 element:<CreateAllData/>
+            },{
+                path:"/login",
+                element:<Login/>
+            },{
+                path:"/getcontactdata",
+                element:<GetContactData/>
             }
            
         ]

@@ -3,6 +3,7 @@ import contactModel from "../model/contact.model.js";
 
 
 export const createContact= async(req,res)=>{
+    
 
     try{
     const {age,mob,name,course}=req.body
@@ -18,7 +19,10 @@ export const createContact= async(req,res)=>{
     })
     }catch(err){
         console.log(err)
-        return res.json(err)
+        return res.status(500).json({
+            Message:"some err",
+            err
+        })
     }
 }
 

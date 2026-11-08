@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 const ContactState = () => {
@@ -8,11 +9,18 @@ const ContactState = () => {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = (data) => {
-    console.log("Mukesh Thakur");
-    console.log(data);
+  const submitHandler =async (data) => {
+  
+    
 
-    reset();
+try{
+  console.log(data);
+const res= await axios.post("http://localhost:3000/api/contact/create",data) 
+   console.log(res)
+reset();
+}catch(err){
+  console.log(err)
+}
   };
 
   return {
