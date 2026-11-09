@@ -4,7 +4,7 @@ import axios from "axios"
 
 const SecondPage = () => {
   const [studentData,setStudentData]= useState([])
-
+//const studentData=[{name:"yash"},{name:"sdfdf"}]
   const getTopper= async ()=>{
     try{
       console.log("calling")
@@ -32,14 +32,18 @@ getTopper()
       {/* Responsive Horizontal Wavy Scroller  */}
       <div className="w-full overflow-x-auto scrollbar-none scrollbar-thumb-amber-600 scrollbar-track-zinc-900 px-6 py-12 flex items-center h-[55vh] md:h-[60vh] gap-6 snap-x snap-mandatory">
         
-        {studentData.map((data, idx) => (
-          <div 
+        {studentData.map((data, idx) => {
+
+        
+         return(
+<div 
             key={idx}
            
           >
             <StudentCart data={data} />
           </div>
-        ))}
+         ) 
+})}
       </div>
     </div>
   );
