@@ -49,7 +49,7 @@ export const authenticateAdmin=async (req,res,next)=>{
     console.log(user.role,"id")
    if (user.role !== "admin") {
       return res.status(403).json({
-        message: "mar moj",
+        message: "forbitten",
       });
     }
     next()
