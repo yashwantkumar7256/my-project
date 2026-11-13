@@ -1,7 +1,7 @@
 import React from 'react'
-import MainLayout from '../Layout/MainLayout'
+import MainLayout from '../layout/MainLayout'
 import {createBrowserRouter,RouterProvider} from 'react-router'
-import Second from '../Layout/Second'
+import Second from '../layout/Second'
 import ContactForm from '../Features/ContectF/ui/ContectForm'
 
 import CreateAllData from '../Features/CreateF/ui/CreateAllData'
