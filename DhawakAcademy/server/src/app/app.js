@@ -11,7 +11,8 @@ const app =express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "my-project-nu-eosin-32.vercel.app"
+    "my-project-nu-eosin-32.vercel.app",
+    "https://my-project-jotb2087a-yashwantkumar7256s-projects.vercel.app"
   ],
   credentials: true
 }));
