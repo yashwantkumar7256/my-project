@@ -16,7 +16,7 @@ const ThirdPage = () => {
       setError("");
 
       const res = await axios.get(
-        "http://localhost:3000/api/course"
+        "my-project-src.vercel.app/api/course"
       );
 
       setData(res.data.data);

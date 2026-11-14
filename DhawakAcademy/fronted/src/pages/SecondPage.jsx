@@ -8,7 +8,7 @@ const SecondPage = () => {
   const getTopper= async ()=>{
     try{
       console.log("calling")
-      const res= await axios.get('http://localhost:3000/api/topper')
+      const res= await axios.get('my-project-src.vercel.app/api/topper')
        console.log(res.data.data)
        setStudentData(res.data.data)
     }catch(err){
