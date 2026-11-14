@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CoursesCard from "../components/CoursesCard";
-import axios from "axios";
+import api from "../api";
 
 const ThirdPage = () => {
 
@@ -15,9 +15,7 @@ const ThirdPage = () => {
       setLoading(true);
       setError("");
 
-      const res = await axios.get(
-        "https://my-project-1-m8fm.onrender.com/api/course"
-      );
+      const res = await api.get("/api/course");
 
       setData(res.data.data);
 

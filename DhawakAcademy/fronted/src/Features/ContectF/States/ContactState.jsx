@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
+import api from "../../../api";
 
 const ContactState = () => {
   const {
@@ -15,7 +15,7 @@ const ContactState = () => {
 
 try{
   console.log(data);
-const res= await axios.post("https://my-project-1-m8fm.onrender.com/contact/create",data) 
+const res= await api.post("/api/contact/create",data)
    console.log(res)
 reset();
 }catch(err){

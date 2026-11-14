@@ -3,6 +3,7 @@ import connectDB from "./config/db.js";
 
 
 await connectDB() 
-app.listen(3000,()=>{
-    console.log("running 3000")
+const port = process.env.PORT || 3000;
+app.listen(port,()=>{
+    console.log(`running ${port}`)
 })

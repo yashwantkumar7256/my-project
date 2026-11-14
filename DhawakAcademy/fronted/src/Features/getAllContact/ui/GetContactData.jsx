@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+import api from "../../../api";
 
 const GetContactData = () => {
 
@@ -13,12 +13,7 @@ const GetContactData = () => {
     const refreshToken = async () => {
         try {
 
-            const res = await axios.get(
-                "http://localhost:3000/api/auth/refresh",
-                {
-                    withCredentials: true
-                }
-            );
+            const res = await api.get("/api/auth/refresh");
 
             setAccessToken(res.data.accessToken);
 
@@ -40,15 +35,11 @@ const GetContactData = () => {
 
         try {
 
-            const res = await axios.get(
-                "http://localhost:3000/api/contact",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    },
-                    withCredentials: true
+            const res = await api.get("/api/contact", {
+                headers: {
+                    Authorization: `Bearer ${token}`
                 }
-            );
+            });
 
             setContactData(res.data);
 

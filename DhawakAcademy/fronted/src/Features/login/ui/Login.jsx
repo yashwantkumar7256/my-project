@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
+import api from "../../../api";
 
 const Login = () => {
   const {
@@ -20,11 +20,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
-        data,
-        { withCredentials: true }
-      );
+      const res = await api.post("/api/auth/login", data);
 
       setAccessToken(res.data.accessToken);
      console.log(res)

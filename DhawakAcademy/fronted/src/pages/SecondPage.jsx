@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import StudentCart from "../components/StudentCart";
-import axios from "axios"
+import api from "../api";
 
 const SecondPage = () => {
   const [studentData,setStudentData]= useState([])
@@ -8,9 +8,7 @@ const SecondPage = () => {
   const getTopper= async ()=>{
     try{
       console.log("calling")
-    const res = await axios.get(
-  'https://my-project-1-m8fm.onrender.com/api/topper'
-);
+    const res = await api.get("/api/topper");
        console.log(res.data.data)
        setStudentData(res.data.data)
     }catch(err){

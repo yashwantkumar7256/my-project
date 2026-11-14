@@ -8,13 +8,20 @@ import authRouter from "../router/user.router.js"
 import cors from "cors"
 const app =express();
 
+const allowedOrigins = new Set([
+  "http://localhost:5173",
+  "https://my-project-nu-eosin-32.vercel.app",
+  "https://my-project-jnrek2ky1-yashwantkumar7256s-projects.vercel.app",
+  ...(process.env.CORS_ORIGINS || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+]);
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-      "https://my-project-y6v6.vercel.app",
-    "https://my-project-jotb2087a-yashwantkumar7256s-projects.vercel.app",
-  "https://my-project-1-m8fm.onrender.com"
-  ],
+  origin: (origin, callback) => {
+    callback(null, !origin || allowedOrigins.has(origin));
+  },
   credentials: true
 }));
 app.use(express.json())
