@@ -9,7 +9,7 @@ const SecondPage = () => {
     try{
       console.log("calling")
     const res = await axios.get(
-  'https://my-project-src.vercel.app/api/topper'
+  'https://my-project-1-m8fm.onrender.com/api/topper'
 );
        console.log(res.data.data)
        setStudentData(res.data.data)

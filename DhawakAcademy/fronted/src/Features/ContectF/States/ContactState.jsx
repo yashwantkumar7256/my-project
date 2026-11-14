@@ -15,7 +15,7 @@ const ContactState = () => {
 
 try{
   console.log(data);
-const res= await axios.post("http://localhost:3000/api/contact/create",data) 
+const res= await axios.post("https://my-project-1-m8fm.onrender.com/contact/create",data) 
    console.log(res)
 reset();
 }catch(err){
