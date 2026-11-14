@@ -9,10 +9,11 @@ import cors from "cors"
 const app =express();
 
 app.use(cors({
-    
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+  origin: [
+    "http://localhost:5173",
+    "https://my-project-nu-eosin-32.vercel.app"
+  ],
+  credentials: true
 }));
 app.use(express.json())
 app.use(cookieParser())
