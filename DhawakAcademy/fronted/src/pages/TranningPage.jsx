@@ -5,26 +5,26 @@ const TranningPage = () => {
   const items = [
     {
       id: 1,
-      title: "Web Development",
-      image: "https://picsum.photos/seed/web/800/600",
+      title: "pyari motu",
+      image: "https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_2026_1114_184433.png",
       size: "col-span-2 row-span-2",
     },
     {
       id: 2,
-      title: "UI/UX Design",
-      image: "https://picsum.photos/seed/design/800/600",
+      title: "sunder motu ",
+      image: "https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_2026_1114_184448.png",
       size: "col-span-1 row-span-1",
     },
     {
       id: 3,
-      title: "Programming",
-      image: "https://picsum.photos/seed/code/800/600",
+      title: "isme motu nahi hai",
+      image: "https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_20261114_184605.jpg",
       size: "col-span-2 row-span-1",
     },
     {
       id: 4,
       title: "Artificial Intelligence",
-      image: "https://picsum.photos/seed/ai/800/600",
+      image: "https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_20261114_184605.jpg",
       size: "col-span-1 row-span-2",
     },
     {
@@ -42,7 +42,7 @@ const TranningPage = () => {
     {
       id: 7,
       title: "Frontend Development",
-      image: "https://picsum.photos/seed/frontend/800/600",
+      image: "https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_2026_1114_184433.png",
       size: "col-span-2 row-span-1",
     },
     {

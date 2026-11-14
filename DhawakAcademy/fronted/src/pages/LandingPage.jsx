@@ -90,7 +90,7 @@ useEffect(() => {
         <div className="rounded-3xl overflow-hidden shadow-2xl relative border border-zinc-800 bg-zinc-900 min-h-[35vh] md:min-h-full xl:col-span-1 2xl:min-h-[650px]">
           <img
             className="absolute inset-0 h-full w-full object-cover object-top filter brightness-90 hover:scale-105 transition-transform duration-700"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSepBnKdL5V3EAxhcFnT9JSEjcmr2SuoKCguQJ0K5pb_g&s=10"
+            src="https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_2026_1114_184639.png"
             alt="Lead Coach and Instructor Portrait"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
