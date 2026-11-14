@@ -11,7 +11,7 @@ const app =express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://my-project-y6v6.vercel.app"
+    "https://my-project-1-m8fm.onrender.com"
   ],
   credentials: true
 }));
