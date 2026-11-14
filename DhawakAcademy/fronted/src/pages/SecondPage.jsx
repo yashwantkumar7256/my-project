@@ -8,9 +8,9 @@ const SecondPage = () => {
   const getTopper= async ()=>{
     try{
       console.log("calling")
-    const res = await axios.get(
-  'https://my-project-src.vercel.app/api/topper'
-);
+//     const res = await axios.get(
+//   'https://my-project-src.vercel.app/api/topper'
+// );
        console.log(res.data.data)
        setStudentData(res.data.data)
     }catch(err){
