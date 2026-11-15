@@ -15,7 +15,9 @@ app.use(cookieParser())
 app.use("/api/course",courseRouter)
 app.use("/api/topper",topperRouter)
 app.use("/api/contact",contactRouter)
-
+app.use("/",(req,res)=>{
+    return res.json("server is running")
+})
 
 app.use("/api/auth",authRouter)
 export default app
