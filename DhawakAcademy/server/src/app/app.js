@@ -31,11 +31,9 @@ app.use(cookieParser())
 app.use("/api/course",courseRouter)
 app.use("/api/topper",topperRouter)
 app.use("/api/contact",contactRouter)
-<<<<<<< HEAD
 app.use("/",(req,res)=>{
     return res.json("server is running")
 })
-=======
 app.get("/health", (req, res) => {
   res.status(200).json({
     success: true,
@@ -43,7 +41,6 @@ app.get("/health", (req, res) => {
   });
 });
 
->>>>>>> 4e641c26c5a749b43faadeec207f6c34fd74aa98
 
 app.use("/api/auth",authRouter)
 export default app
