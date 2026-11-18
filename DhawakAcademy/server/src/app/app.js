@@ -8,16 +8,42 @@ import authRouter from "../router/user.router.js"
 import cors from "cors"
 const app =express();
 
-app.use(cors())
+const allowedOrigins = new Set([
+  "http://localhost:5173",
+  "https://my-project-nu-eosin-32.vercel.app",
+  "https://my-project-jnrek2ky1-yashwantkumar7256s-projects.vercel.app",
+  ...(process.env.CORS_ORIGINS || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+]);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    callback(null, !origin || allowedOrigins.has(origin));
+  },
+  credentials: true
+}));
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
 app.use("/api/course",courseRouter)
 app.use("/api/topper",topperRouter)
 app.use("/api/contact",contactRouter)
+<<<<<<< HEAD
 app.use("/",(req,res)=>{
     return res.json("server is running")
 })
+=======
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Backend is working"
+  });
+});
+
+>>>>>>> 4e641c26c5a749b43faadeec207f6c34fd74aa98
 
 app.use("/api/auth",authRouter)
 export default app

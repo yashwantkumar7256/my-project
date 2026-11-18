@@ -18,9 +18,12 @@
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.87.0",
     "react-router": "^7.18.3",
-    "react-toastify": "^11.2.0"
+    "react-router-dom": "^7.18.5",
+    "react-toastify": "^11.2.0",
+    "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",

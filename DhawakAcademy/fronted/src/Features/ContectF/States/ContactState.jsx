@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import api from "../../../api";
 
 const ContactState = () => {
   const {
@@ -8,11 +9,18 @@ const ContactState = () => {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = (data) => {
-    console.log("Mukesh Thakur");
-    console.log(data);
+  const submitHandler =async (data) => {
+  
+    
 
-    reset();
+try{
+  console.log(data);
+const res= await api.post("/api/contact/create",data)
+   console.log(res)
+reset();
+}catch(err){
+  console.log(err)
+}
   };
 
   return {

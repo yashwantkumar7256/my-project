@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import StudentCart from "../components/StudentCart";
-import axios from "axios"
+import api from "../api";
 
 const SecondPage = () => {
   const [studentData,setStudentData]= useState([])
-
+//const studentData=[{name:"yash"},{name:"sdfdf"}]
   const getTopper= async ()=>{
     try{
       console.log("calling")
-      const res= await axios.get('http://localhost:3000/api/topper')
+    const res = await api.get("/api/topper");
        console.log(res.data.data)
        setStudentData(res.data.data)
     }catch(err){
@@ -32,14 +32,18 @@ getTopper()
       {/* Responsive Horizontal Wavy Scroller  */}
       <div className="w-full overflow-x-auto scrollbar-none scrollbar-thumb-amber-600 scrollbar-track-zinc-900 px-6 py-12 flex items-center h-[55vh] md:h-[60vh] gap-6 snap-x snap-mandatory">
         
-        {studentData.map((data, idx) => (
-          <div 
+        {studentData.map((data, idx) => {
+
+        
+         return(
+<div 
             key={idx}
            
           >
             <StudentCart data={data} />
           </div>
-        ))}
+         ) 
+})}
       </div>
     </div>
   );
