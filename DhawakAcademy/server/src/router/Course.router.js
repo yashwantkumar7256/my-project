@@ -1,5 +1,5 @@
 import express from "express"
-import { createCourse,deleteData,getAllCourse } from "../controller/Course.controller.js"
+import { createCourse,deleteData,getAllCourse, getCourse } from "../controller/Course.controller.js"
 import { upload } from "../middleware/upload.middleware.js"
 import { authenticateAdmin, authenticateUser } from "../middleware/auth.middleware.js"
 
@@ -11,5 +11,7 @@ router.post("/create",authenticateUser,authenticateAdmin,upload.single('image') 
 router.get("/",getAllCourse)
 
 router.delete("/:id",authenticateUser,authenticateAdmin,deleteData)
+
+router.get("/details/:id",getCourse)
 
 export default router 
