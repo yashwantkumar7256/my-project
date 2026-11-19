@@ -4,6 +4,7 @@ import { uploadFile } from "../services/Storage.service.js";
 
 
  export const createCourse=async(req,res)=>{
+   console.log("req",req.body)
    
 
     try{
@@ -24,11 +25,11 @@ console.log("Image URL:", imageResponse.url);
      
        const{courseName,price,duration,validity,location,timing,tranner}=req.body
 
-    if(!courseName,!price ||!duration ||!validity ||!location ||!timing ||!tranner){
-    return res.status(400).json({
-        message:"fill every field properly"
-    })
-    }
+   //  if(!courseName,!price ||!duration ||!validity ||!location ||!timing ||!tranner){
+   //  return res.status(400).json({
+   //      message:"fill every field properly"
+   //  })
+   //  }
      const CouseData=await courseModel.create({
         
        courseName, price,duration,validity,location,timing,tranner,
@@ -42,7 +43,7 @@ console.log("Image URL:", imageResponse.url);
 
     }catch(err){
         console.log(err)
-        return res.json(err.message)
+        return res.json(err)
      }
 
 }
