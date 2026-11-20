@@ -16,11 +16,11 @@ courseName:{
   },
   duration: {
     type: String,
-    required: true,
+  
   },
   validity: {
     type: String,
-    required: true,
+    
   },
   location: {
     type: String,

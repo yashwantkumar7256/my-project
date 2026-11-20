@@ -1,7 +1,10 @@
-import { response } from "express";
+
 import courseModel from "../model/Course.model.js";
 import { uploadFile } from "../services/Storage.service.js";
+
+
  export const createCourse=async(req,res)=>{
+   console.log("req",req.body)
    
 
     try{
@@ -22,11 +25,11 @@ console.log("Image URL:", imageResponse.url);
      
        const{courseName,price,duration,validity,location,timing,tranner}=req.body
 
-    if(!courseName,!price ||!duration ||!validity ||!location ||!timing ||!tranner){
-    return res.status(400).json({
-        message:"fill every field properly"
-    })
-    }
+   //  if(!courseName,!price ||!duration ||!validity ||!location ||!timing ||!tranner){
+   //  return res.status(400).json({
+   //      message:"fill every field properly"
+   //  })
+   //  }
      const CouseData=await courseModel.create({
         
        courseName, price,duration,validity,location,timing,tranner,
@@ -40,7 +43,7 @@ console.log("Image URL:", imageResponse.url);
 
     }catch(err){
         console.log(err)
-        return res.json(err.message)
+        return res.json(err)
      }
 
 }
@@ -92,4 +95,36 @@ export const deleteData=async(req,res)=>{
         }catch(err){
         console.log(err)
         }
+}
+
+export const getCourse= async(req,res)=>{
+
+   try{
+   const {id}=req.params
+   if(!id){
+      return res.status(400).json({
+         message:"id is required"
+      })
+   }
+
+   const data = await courseModel.findById(id)
+   if(!data){
+      return res.status(404).json({
+         message:"data not found"
+      })
+   }
+
+   return res.status(200).json(
+      {
+         message:"data fetched successfully",
+      data
+   }
+   )
+
+
+   }catch(err){
+       return res.status(500).json({
+         error:err
+       })
+   }
 }

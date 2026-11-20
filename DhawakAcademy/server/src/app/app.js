@@ -31,6 +31,7 @@ app.use(cookieParser())
 app.use("/api/course",courseRouter)
 app.use("/api/topper",topperRouter)
 app.use("/api/contact",contactRouter)
+
 app.get("/health", (req, res) => {
   res.status(200).json({
     success: true,
