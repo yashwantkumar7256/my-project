@@ -9,7 +9,7 @@ import TranningPage from '../pages/TranningPage'
 
 const Second = () => {
   return (
-    <div>
+    <div >
    <LandingPage/>
   <SecondPage/>
   <ThirdPage/>

@@ -1,137 +1,113 @@
-import React, { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
-
+import React from "react";
+import { ArrowRight, Play } from "lucide-react";
 
 const LandingPage = () => {
-  const [displayText, setDisplayText] = useState("");
-
-const text = "IT IS ONE OF THE BEST TRAINING ACADEMIES";
-
-useEffect(() => {
-  const delay = setTimeout(() => {
-    let i = 0;
-
-    const typing = setInterval(() => {
-      setDisplayText(text.slice(0, i + 1));
-      i++;
-
-      if (i === text.length) {
-        clearInterval(typing);
-      }
-    }, 80);
-
-    return () => clearInterval(typing);
-  }, 500);
-
-  return () => clearTimeout(delay);
-}, []);
   return (
-    <div className="min-h-screen w-full bg-zinc-950 text-white pt-10 pb-5 px-4 md:px-8 xl:px-16 flex justify-center items-center">
-      {/* Dynamic Grid Layout container changing per responsive breakpoint */}
-      <div className="w-full max-w-7xl 2xl:max-w-[1600px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-7 xl:gap-8 2xl:gap-10 items-stretch">
-        
-        {/* Left Column Area*/}
-        <div className="flex flex-col justify-between gap-6 p-6 rounded-3xl bg-zinc-900/50 border border-zinc-800 shadow-xl xl:col-span-1 2xl:p-8">
-          
-          {/* Top Notice Badge */}
-          <div className="inline-flex font-black text-orange-500 text-xs tracking-widest uppercase bg-orange-500/10 px-4 py-1.5 rounded-full w-fit self-center md:self-start">
-            Training Starts Today
-          </div>
+    <section className="w-full min-h-[50vh]  mt-7 px-4 sm:px-8 lg:px-16 py-10 lg:py-16 bg-[#101827] text-white overflow-hidden">
 
-          {/* Clean  Title */}
-       <div className="font-jim tracking-wide text-center md:text-left my-4">
-  <h1 className="text-4xl sm:text-5xl md:text-4xl xl:text-5xl font-extrabold leading-tight">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 lg:gap-16">
 
-    {displayText.split(" ").map((word, index) => (
-      <span
-        key={index}
-        className={
-          word === "BEST" || word === "TRAINING"
-            ? "text-amber-500"
-            : "text-zinc-100"
-        }
-      >
-        {word}{" "}
-      </span>
-    ))}
+        {/* TEXT SECTION */}
+        <div className="w-full md:w-1/2 flex flex-col items-start gap-5">
 
-    <span className="animate-pulse text-amber-500">|</span>
+          <span className="text-orange-400 uppercase tracking-[3px] text-sm font-semibold">
+            Transform Your Life
+          </span>
 
-  </h1>
-</div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
+            MAKE A POSITIVE
+            <span className="block text-orange-500">
+              CHANGE IN YOUR
+            </span>
+            LIFE TODAY
+          </h1>
 
-          {/*  Start Button */}
-          <div className="group flex bg-gradient-to-r from-red-100 to-orange-600 hover:from-red-900 hover:to-orange-700 transition-all duration-300 px-6 py-3.5 rounded-2xl justify-center items-center gap-3 cursor-pointer shadow-lg shadow-red-500/10 w-full sm:w-2/3 md:w-full self-center">
-            <button className="text-base font-bold uppercase tracking-wider">
-              Start Now
+          <p className="text-gray-300 text-base sm:text-lg leading-8 max-w-xl">
+            Every great journey begins with a single step. Challenge yourself,
+            build confidence, develop new skills and take control of your
+            future. Your success story starts today!
+          </p>
+
+          {/* BUTTONS */}
+          <div className="flex flex-wrap gap-4 mt-3">
+
+            <button className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+              Get Started
+              <ArrowRight size={20} />
             </button>
-            <ArrowRight size={18} className="transform transition-transform group-hover:translate-x-4" />
+
+            <button className="flex items-center gap-2 border border-gray-400 hover:border-orange-500 px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+              <Play size={18} />
+              Learn More
+            </button>
+
           </div>
 
-          {/* Student Badges Counter */}
-          <div className="mt-4 flex flex-col sm:flex-row md:flex-col md:gap-8 xl:flex-row items-center gap-3 border-t border-zinc-800/80 pt-4">
-            <div className="flex -space-x-2.5">
-              {[1, 2, 3, 4].map((item, idx) => (
-                <img
-                  key={idx}
-                  className="rounded-full h-9 w-9 object-cover border-2 border-zinc-900 shadow-md"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZvabEE_TNgRzOllhDknCb3Pcq6OwHbpwJPucBr8t__w&s=10"
-                  alt="Sucessful Student Profile Avatar"
-                />
-              ))}
+          {/* STATS */}
+          <div className="flex gap-8 sm:gap-12 mt-8 border-t border-gray-700 pt-6 w-full">
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-orange-500">
+                100+
+              </h2>
+              <p className="text-gray-400 text-sm mt-1">
+                Opportunities
+              </p>
             </div>
-            <div className="text-sm font-semibold text-amber-500 text-center sm:text-left md:text-center xl:text-left">
-              30+ students selected from this academy
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-orange-500">
+                95%
+              </h2>
+              <p className="text-gray-400 text-sm mt-1">
+                Dedication
+              </p>
             </div>
+
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-orange-500">
+                24/7
+              </h2>
+              <p className="text-gray-400 text-sm mt-1">
+                Support
+              </p>
+            </div>
+
           </div>
+
         </div>
 
-        {/*  Featured Main Display  */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl relative border border-zinc-800 bg-zinc-900 min-h-[35vh] md:min-h-full xl:col-span-1 2xl:min-h-[650px]">
-          <img
-            className="absolute inset-0 h-full w-full object-cover object-top filter brightness-90 hover:scale-105 transition-transform duration-700"
-            src="https://ik.imagekit.io/dk7ueyomx/DhawakAcademy/motu/Screenshot_2026_1114_184639.png"
-            alt="Lead Coach and Instructor Portrait"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
-        </div>
+        {/* IMAGE SECTION */}
+        <div className="w-full md:w-1/2 relative flex justify-center items-center">
 
-        {/* Right Column Area*/}
-        <div className="flex flex-col gap-6 2xl:gap-8 xl:col-span-1">
-          
-          {/*  Box */}
-          <div className="rounded-3xl p-6 bg-zinc-900/50 border border-zinc-800 flex flex-col justify-center gap-1 shadow-xl 2xl:p-8">
-            <div className="text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-black text-zinc-100 tracking-tight">
-              EXPERIENCE 7 YEARS<span className="text-orange-500">+</span>
-            </div>
-            <div className="text-sm font-medium text-orange-400">
-              Successfully trained over 200+ dedicated students
-            </div>
+          {/* Background decoration */}
+          <div className="absolute w-64 h-64 sm:w-80 sm:h-80 bg-orange-500/20 rounded-full blur-3xl">
           </div>
 
-          {/* Banner */}
-          <div className="rounded-3xl p-6 bg-gradient-to-br from-zinc-900 to-zinc-900/30 border border-zinc-800/80 flex flex-col justify-center gap-2 shadow-xl 2xl:p-8">
-            <div className="text-lg font-black tracking-wider text-amber-500 uppercase">
-              Build Your Body. Build Your Mind.
-            </div>
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Train hard. Stay resilient. Consistency is the true key to unlocking peak human performance.
-            </p>
-          </div>
+          <div className="relative w-full max-w-lg">
 
-          {/* Footer  Image  */}
-          <div className="rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl flex-grow min-h-[25vh] md:min-h-[20vh] relative 2xl:min-h-[300px]">
             <img
-              className="absolute inset-0 h-full w-full object-cover filter contrast-110 saturate-75 hover:scale-105 transition-transform duration-700"
-              src="https://www.gat.ac.in/img/9c7acbe14763350c32ade283fd05c4b399163605.jpg"
-              alt="Academy Athletics Tracking Field Facility"
+              className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-2xl "
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNIt52qUljGdJXFymRUK_ZPTSKAyeB1SJzA3N1ORpIwg&s=10"
+              alt="Fitness and personal development"
             />
+
+            {/* Image overlay card */}
+            <div className="absolute bottom-5 left-5 right-5 bg-black/60 backdrop-blur-md rounded-xl p-4">
+              <h3 className="text-xl font-bold">
+                Your Journey Starts Here
+              </h3>
+              <p className="text-gray-300 text-sm mt-1">
+                Stay focused. Stay motivated. Keep growing.
+              </p>
+            </div>
+
           </div>
 
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };
 
