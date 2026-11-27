@@ -21,7 +21,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/login", data,{withCredentials:true});
+      const res = await api.post("/auth/login", data,{withCredentials:true});
 
       setAccessToken(res.data.accessToken);
      console.log(res)
