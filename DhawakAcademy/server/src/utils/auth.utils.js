@@ -6,8 +6,7 @@ export const genrateToken= async({userId,role})=>{
  const accessToken= jwt.sign({id:userId,role},config.ACCESS_TOKEN,{expiresIn:'15m'});
 
     const refreshToken= jwt.sign({id:userId,role},config.REFRESH_TOKEN,{expiresIn:'7d'});
-    console.log("access",accessToken)
-    console.log("refesh",refreshToken)
+   
   return { accessToken,refreshToken}
     }catch(err){
         console.log(err)
@@ -23,6 +22,6 @@ return decode
 
     export const verifyRefreshToken= (token)=>{
         const decode=jwt.verify(token,config.REFRESH_TOKEN)
-        console.log(decode)
+       
     return decode
     }

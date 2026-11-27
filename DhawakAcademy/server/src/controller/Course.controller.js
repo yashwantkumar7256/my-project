@@ -4,8 +4,7 @@ import { uploadFile } from "../services/Storage.service.js";
 
 
  export const createCourse=async(req,res)=>{
-   console.log("req",req.body)
-   
+  
 
     try{
 

@@ -19,7 +19,7 @@ export const registerUser = async (req, res) => {
     const { accessToken, refreshToken } = await genrateToken({
       userId: user._id,role:user.role
     });
-    console.log("access",accessToken)
+   
 
     user.refreshToken=  refreshToken
     await user.save()
@@ -144,7 +144,7 @@ export const login = async (req, res) => {
 
 export const refresh=async(req,res)=>{
 
-    console.log("cookie",req.cookies)
+   
     
     try{
     const refreshToken=req.cookies.refreshToken
@@ -170,7 +170,6 @@ export const refresh=async(req,res)=>{
      }
 
      const { accessToken,refreshToken:newRefreshToken}=await genrateToken({userId:user._id})
-     console.log("access",accessToken,"refesh",newRefreshToken)
 
     res.cookie("refreshToken",newRefreshToken,{httpOnly:true})
 
