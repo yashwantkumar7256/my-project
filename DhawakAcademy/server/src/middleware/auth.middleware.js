@@ -3,7 +3,7 @@ import userModel from "../model/user.model.js";
 import { verifyAccessToken } from "../utils/auth.utils.js";
 
 export const authenticateUser = async (req, res, next) => {
-  console.log("cookie",req.cookies)
+ 
   try {
     const token = req.headers.authorization;
 
@@ -27,8 +27,8 @@ export const authenticateUser = async (req, res, next) => {
       });
     }
 
-    console.log("completed");
-    console.log(decode);
+    
+  
 
       req.user = decode;
           next();
@@ -46,7 +46,7 @@ export const authenticateAdmin=async (req,res,next)=>{
      // const user=
     const {id}=req.user
     const user= await userModel.findById(id)
-    console.log(user.role,"id")
+   
    if (user.role !== "admin") {
       return res.status(403).json({
         message: "forbitten",
