@@ -19,7 +19,7 @@ export const registerUser = async (req, res) => {
     const { accessToken, refreshToken } = await genrateToken({
       userId: user._id,role:user.role
     });
-    console.log("access",accessToken)
+   
 
     user.refreshToken=  refreshToken
     await user.save()
@@ -170,7 +170,10 @@ export const refresh=async(req,res)=>{
      }
 
      const { accessToken,refreshToken:newRefreshToken}=await genrateToken({userId:user._id})
+<<<<<<< HEAD
     
+=======
+>>>>>>> 96424ef9b40778be164483d4f416d0a04bb5542d
 
     res.cookie("refreshToken",newRefreshToken,{httpOnly:true})
 
