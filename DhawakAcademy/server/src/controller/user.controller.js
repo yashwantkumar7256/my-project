@@ -170,10 +170,7 @@ export const refresh=async(req,res)=>{
      }
 
      const { accessToken,refreshToken:newRefreshToken}=await genrateToken({userId:user._id})
-<<<<<<< HEAD
-    
-=======
->>>>>>> 96424ef9b40778be164483d4f416d0a04bb5542d
+
 
     res.cookie("refreshToken",newRefreshToken,{httpOnly:true})
 
