@@ -30,7 +30,7 @@ const Navbar = () => {
             Contact
           </NavLink>
         </div>
-        <div>end</div>
+        <NavLink to="/login"> Admin login</NavLink>
       </nav>
     </div>
   );

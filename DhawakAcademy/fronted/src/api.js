@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://my-project-1-m8fm.onrender.com",
+  baseURL: "https://my-project-1-m8fm.onrender.com",
   withCredentials: true,
 });
 

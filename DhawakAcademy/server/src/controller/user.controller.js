@@ -3,7 +3,16 @@ import { decode } from "jsonwebtoken";
 import userModel from "../model/user.model.js";
 import { genrateToken, verifyAccessToken, verifyRefreshToken } from "../utils/auth.utils.js";
 import bcrypt from "bcrypt"
-import cookie from "cookie-parser"
+
+const isDevelopment = process.env.NODE_ENV === "development";
+
+const refreshCookieOptions = {
+  httpOnly: true,
+  secure: !isDevelopment,
+  sameSite: isDevelopment ? "lax" : "none",
+  path: "/",
+  maxAge: 7 * 24 * 60 * 60 * 1000
+};
 
 export const registerUser = async (req, res) => {
   try {
@@ -25,9 +34,7 @@ export const registerUser = async (req, res) => {
     await user.save()
 
 
-    res.cookie("refreshToken",refreshToken,{
-        httpOnly:true
-    })
+    res.cookie("refreshToken", refreshToken, refreshCookieOptions);
 
     return res.status(201).json({
       message: "user created successfully",
@@ -114,11 +121,7 @@ export const login = async (req, res) => {
         await user.save();
 
         
-        res.cookie("refreshToken", refreshToken, {
-            httpOnly: true,
-            secure: false,
-         
-        });
+        res.cookie("refreshToken", refreshToken, refreshCookieOptions);
 
         return res.status(200).json({
             message: "Logged in successfully",
@@ -143,50 +146,41 @@ export const login = async (req, res) => {
 
 
 export const refresh=async(req,res)=>{
-
-   
-    
     try{
-    const refreshToken=req.cookies.refreshToken
-    
-        
-    if(!refreshToken){
-        return res.status(401).json({
-            message:"invalid refreshToken"
-        })
-    }
-     const decode=verifyRefreshToken(refreshToken)
-            
-     const user= await userModel.findById(decode.id)
+        const refreshToken = req.cookies?.refreshToken;
+        if (!refreshToken) {
+            return res.status(401).json({
+                message: "Refresh token cookie is missing",
+            });
+        }
 
-     if(refreshToken != user.refreshToken){
+        const decoded = verifyRefreshToken(refreshToken);
 
-        user.refreshToken=null
-        await user.save()
-        return res.status(401).json({
-            message:"unAuthozied or invalid refreshToken ",
-            
-        })
-     }
+        const user = await userModel.findById(decoded.id);
 
-     const { accessToken,refreshToken:newRefreshToken}=await genrateToken({userId:user._id})
+        if (!user || refreshToken !== user.refreshToken) {
+            return res.status(401).json({
+                message: "Refresh token is invalid or expired",
+            });
+        }
 
+        const { accessToken, refreshToken: newRefreshToken } = await genrateToken({
+            userId: user._id,
+            role: user.role,
+        });
 
-    res.cookie("refreshToken",newRefreshToken,{httpOnly:true})
+        user.refreshToken = newRefreshToken;
+        await user.save();
+        res.cookie("refreshToken", newRefreshToken, refreshCookieOptions);
 
-    user.refreshToken=newRefreshToken
-    await user.save()
-
-    return res.status(200).json({
-        message:"token refreshed successfully",
-        accessToken
-    })
-
+        return res.status(200).json({
+            message: "Token refreshed successfully",
+            accessToken,
+        });
     }catch(err){
-        console.log("refresh err ",err)
+        console.error("Refresh token error:", err);
         return res.status(401).json({
-            message:"unAuthozied or invald refresh token "
+            message: "Refresh token is invalid or expired",
         })
     }
-
 }

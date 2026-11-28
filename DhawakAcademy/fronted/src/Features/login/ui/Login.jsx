@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../../context/AuthContext";
 import api from "../../../api";
-import axios from "axios";
 
 const Login = () => {
   const {
@@ -21,13 +21,13 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await api.post("/auth/login", data,{withCredentials:true});
+      const res = await api.post("/api/auth/login", data,{withCredentials:true});
 
       setAccessToken(res.data.accessToken);
-     console.log(res)
+      toast.success(res.data.message || "Logged in successfully");
       reset();
     } catch (err) {
-      console.log("Login Error:", err.response?.data || err.message);
+      toast.error(err.response?.data?.message || "Unable to log in. Please try again.");
     } finally {
       setLoading(false);
     }

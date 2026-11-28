@@ -8,12 +8,11 @@ import authRouter from "../router/user.router.js"
 import cors from "cors"
 const app =express();
 
-const allowedOrigins = new Set([
+const allowedOrigins = [
   "http://localhost:5173",
   "https://my-project-nu-eosin-32.vercel.app",
   "https://my-project-jnrek2ky1-yashwantkumar7256s-projects.vercel.app",
-  
-]);
+];
 
 app.use(cors({
   origin:allowedOrigins,

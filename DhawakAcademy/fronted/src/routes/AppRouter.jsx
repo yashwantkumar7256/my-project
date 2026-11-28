@@ -1,6 +1,8 @@
 import React from 'react'
 import MainLayout from '../layout/MainLayout'
 import {createBrowserRouter,RouterProvider} from 'react-router'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Second from '../layout/Second'
 import ContactForm from '../Features/ContectF/ui/ContectForm'
 
@@ -36,7 +38,10 @@ const AppRouter = () => {
 
     ])
   return (
-   <RouterProvider router={router} />
+   <>
+    <RouterProvider router={router} />
+    <ToastContainer position="top-right" autoClose={3500} />
+   </>
   )
 }
 
