@@ -6,7 +6,7 @@ import { authenticateAdmin, authenticateUser } from "../middleware/auth.middlewa
 
 const router= express.Router()
 
-router.post("/register",registerValidator,registerUser)
+//router.post("/register",registerValidator,registerUser)
 router.get("/me",authenticateUser,authenticateAdmin,getMe)
 router.get("/refresh",refresh)
 router.post("/login",loginValidation,login)
