@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
+import {NavLink, useNavigate} from "react-router"
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../context/AuthContext";
 import api from "../../../api";
 
 const Login = () => {
+  const navigate= useNavigate()
   const {
     register,
     handleSubmit,
@@ -25,7 +27,9 @@ const Login = () => {
 
       setAccessToken(res.data.accessToken);
       toast.success(res.data.message || "Logged in successfully");
+
       reset();
+       navigate("/getcontactdata",{ replace: true })
     } catch (err) {
       toast.error(err.response?.data?.message || "Unable to log in. Please try again.");
     } finally {
@@ -153,8 +157,7 @@ const Login = () => {
           </p>
 
         </div>
-
-      </div>
+<NavLink className="text-gray-500 text-xs" to="/getcontactData"> Get Contacts</NavLink>      </div>
 
     </div>
   );
